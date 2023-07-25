@@ -1,17 +1,55 @@
 function stretch() {
-  // Your code here
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("done stretching");
+//     resolve();
+//   }, 1000);
+// });
+
+const boolVal = true
+
+return new Promise((resolve, reject) => {
+  if(boolVal) {
+    resolve("this is inside the promise resolve.")
+  } else {
+    reject()
+  }
+});
 }
+//  const str = stretch(
+//   console.log(str)
+// )
 
 function runOnTreadmill() {
-  // Your code here
+  //console.log(num)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+     console.log("done running on treadmill")
+     resolve();
+    }, 500)
+  })
 }
 
 function liftWeights() {
-  // Your code here
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+     console.log("done lifting weights")
+    }, 2000)
+  })
 }
 
 function workout() {
-  // Your code here
+
+  // stretch();
+  // runOnTreadmill();
+  // liftWeights();
+  // console.log("done working out")
+
+  stretch()
+  .then(() => runOnTreadmill())
+  .then(() => liftWeights())
+  .then(() => console.log("done working out"))
+  .catch((err) => console.error(err))
 }
 
 
